@@ -1,13 +1,1658 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>30-Day DSA Mastery: Python &amp; Tamil Resources Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#1e293b',
+                        'ivory': '#faf7f0',
+                        'gold': '#d4af37',
+                        'sage': '#87a96b',
+                        'charcoal': '#374151'
+                    },
+                    fontFamily: {
+                        'serif': ['Crimson Text', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+        }
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            background: rgba(250, 247, 240, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(30, 41, 59, 0.1);
+            z-index: 40;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .toc-link {
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+        }
+        .toc-link:hover, .toc-link.active {
+            border-left-color: #d4af37;
+            background: rgba(30, 41, 59, 0.05);
+            color: #1e293b;
+        }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37 0%, transparent 100%);
+            margin: 3rem 0;
+        }
+        .resource-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(30, 41, 59, 0.1);
+        }
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 41, 59, 0.1);
+        }
+        .complexity-badge {
+            background: rgba(30, 41, 59, 0.1);
+            color: #1e293b;
+            border: 1px solid rgba(30, 41, 59, 0.2);
+        }
+        .tamil-resource {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #d4af37;
+        }
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            #toc-overlay {
+                display: block;
+            }
+            .mermaid-control-btn:not(.reset-zoom) {
+                display: none;
+            }
+            .mermaid-controls {
+                top: auto;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            .toc-fixed {
+                width: 100%;
+            }
+        }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+
+  <body class="bg-ivory text-charcoal font-sans overflow-x-hidden">
+    <!-- Table of Contents -->
+    <nav class="toc-fixed" id="toc">
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-navy mb-4">Contents</h3>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#introduction" class="toc-link block py-2 text-charcoal hover:text-navy">Introduction &amp; Setup</a>
+          </li>
+          <li>
+            <a href="#week1" class="toc-link block py-2 text-charcoal hover:text-navy">Week 1: Foundation</a>
+          </li>
+          <li>
+            <a href="#week2" class="toc-link block py-2 text-charcoal hover:text-navy">Week 2: Core Structures</a>
+          </li>
+          <li>
+            <a href="#week3" class="toc-link block py-2 text-charcoal hover:text-navy">Week 3: Algorithms</a>
+          </li>
+          <li>
+            <a href="#week4" class="toc-link block py-2 text-charcoal hover:text-navy">Week 4: Advanced Topics</a>
+          </li>
+          <li>
+            <a href="#practice" class="toc-link block py-2 text-charcoal hover:text-navy">Practice &amp; Interviews</a>
+          </li>
+          <li>
+            <a href="#resources" class="toc-link block py-2 text-charcoal hover:text-navy">Tamil Resources</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-navy/10">
+        <p class="text-xs text-charcoal/60 mb-2">Quick Stats</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-1 bg-gold/20 text-xs rounded">30 Days</span>
+          <span class="px-2 py-1 bg-sage/20 text-xs rounded">3 Hours/Day</span>
+          <span class="px-2 py-1 bg-navy/10 text-xs rounded">Free Resources</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile TOC Toggle -->
+    <button class="lg:hidden fixed top-4 left-4 z-50 bg-navy text-ivory p-2 rounded shadow-lg" onclick="toggleTOC()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile TOC -->
+    <div id="toc-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden" onclick="toggleTOC()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="relative min-h-[70vh] flex items-center">
+        <div class="absolute inset-0">
+          <img src="https://kimi-web-img.moonshot.cn/img/miro.medium.com/8254b7a7a14dfbef12c8722dcae316e5aa2fd461.png" alt="A modern workspace with a laptop displaying Python code" class="w-full h-full object-cover" size="wallpaper" aspect="wide" style="photo" query="modern workspace with laptop showing python code" referrerpolicy="no-referrer" data-modified="1" data-score="11599.00"/>
+          <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Hero Content Grid -->
+          <div class="lg:col-span-7 text-ivory">
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <span class="italic text-gold">Master</span> Data Structures
+              <br/>
+              &amp; Algorithms in
+              <br/>
+              <span class="text-sage">30 Days</span>
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl font-light mb-8 leading-relaxed">
+              A comprehensive roadmap with curated Tamil video resources,
+              designed for beginners committed to 3 hours of daily practice
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <span class="px-4 py-2 bg-gold/20 rounded-full text-sm">Python Focus</span>
+              <span class="px-4 py-2 bg-sage/20 rounded-full text-sm">Tamil Resources</span>
+              <span class="px-4 py-2 bg-navy/50 rounded-full text-sm">Interview Prep</span>
+            </div>
+          </div>
+
+          <!-- Key Highlights Grid -->
+          <div class="lg:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 lg:mt-0">
+            <div class="bg-ivory/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-ivory/20">
+              <div class="text-gold text-3xl font-bold mb-2">180+</div>
+              <div class="text-ivory/80 text-sm">Hours of Learning</div>
+            </div>
+            <div class="bg-ivory/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-ivory/20">
+              <div class="text-sage text-3xl font-bold mb-2">100+</div>
+              <div class="text-ivory/80 text-sm">Coding Problems</div>
+            </div>
+            <div class="bg-ivory/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-ivory/20">
+              <div class="text-gold text-3xl font-bold mb-2">50+</div>
+              <div class="text-ivory/80 text-sm">Tamil Videos</div>
+            </div>
+            <div class="bg-ivory/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-ivory/20">
+              <div class="text-sage text-3xl font-bold mb-2">6</div>
+              <div class="text-ivory/80 text-sm">Core Topics</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction Section -->
+      <section id="introduction" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Your Journey Begins Here</h2>
+            <p class="text-xl text-charcoal/70 max-w-3xl mx-auto">
+              Master the fundamental concepts that will form the backbone of your DSA expertise
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div>
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">What You&#39;ll Learn</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                  <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 class="font-semibold text-charcoal mb-1">Core Data Structures</h4>
+                    <p class="text-charcoal/70 text-sm">Arrays, Linked Lists, Stacks, Queues, Trees, Graphs, and more</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="w-2 h-2 bg-sage rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 class="font-semibold text-charcoal mb-1">Essential Algorithms</h4>
+                    <p class="text-charcoal/70 text-sm">Sorting, Searching, Recursion, Dynamic Programming, and Greedy Methods</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 class="font-semibold text-charcoal mb-1">Complexity Analysis</h4>
+                    <p class="text-charcoal/70 text-sm">Big O notation, Time and Space complexity optimization</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Python Environment Setup</h3>
+              <div class="bg-ivory p-6 rounded-lg border border-navy/10">
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-3">
+                    <i class="fab fa-python text-2xl text-navy"></i>
+                    <div>
+                      <h4 class="font-semibold">Python 3.7+</h4>
+                      <p class="text-sm text-charcoal/70">Download from python.org</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-code text-2xl text-navy"></i>
+                    <div>
+                      <h4 class="font-semibold">VS Code</h4>
+                      <p class="text-sm text-charcoal/70">With Python extension</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-terminal text-2xl text-navy"></i>
+                    <div>
+                      <h4 class="font-semibold">Command Line</h4>
+                      <p class="text-sm text-charcoal/70">Basic terminal proficiency</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DSA Fundamentals Diagram -->
+          <div class="bg-ivory/50 p-8 rounded-lg border border-navy/10">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">DSA Learning Progression</h3>
+            <div class="mermaid-container">
+              <div class="mermaid-controls">
+                <button class="mermaid-control-btn zoom-in" title="放大">
+                  <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="mermaid-control-btn zoom-out" title="缩小">
+                  <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="mermaid-control-btn reset-zoom" title="重置">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+                <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+              <div class="mermaid">
+                flowchart TD
+                A[&#34;Python Basics&#34;] --&gt; B[&#34;Time Complexity
+                <br/>Big O Notation&#34;]
+                B --&gt; C[&#34;Arrays &amp; Lists&#34;]
+                C --&gt; D[&#34;Linked Lists&#34;]
+                D --&gt; E[&#34;Stacks &amp; Queues&#34;]
+                E --&gt; F[&#34;Trees &amp; Graphs&#34;]
+                F --&gt; G[&#34;Sorting Algorithms&#34;]
+                G --&gt; H[&#34;Searching Algorithms&#34;]
+                H --&gt; I[&#34;Dynamic Programming&#34;]
+                I --&gt; J[&#34;Interview Prep&#34;]
+
+                style A fill:#faf7f0,stroke:#1e293b,stroke-width:2px,color:#1e293b
+                style B fill:#fef3c7,stroke:#d4af37,stroke-width:2px,color:#1e293b
+                style C fill:#ecfdf5,stroke:#87a96b,stroke-width:2px,color:#1e293b
+                style D fill:#ecfdf5,stroke:#87a96b,stroke-width:2px,color:#1e293b
+                style E fill:#fef3c7,stroke:#d4af37,stroke-width:2px,color:#1e293b
+                style F fill:#fef3c7,stroke:#d4af37,stroke-width:2px,color:#1e293b
+                style G fill:#ecfdf5,stroke:#87a96b,stroke-width:2px,color:#1e293b
+                style H fill:#ecfdf5,stroke:#87a96b,stroke-width:2px,color:#1e293b
+                style I fill:#fef3c7,stroke:#d4af37,stroke-width:2px,color:#1e293b
+                style J fill:#faf7f0,stroke:#1e293b,stroke-width:2px,color:#1e293b
+              </div>
+            </div>
+            <p class="text-center text-sm text-charcoal/60 mt-4">
+              Interactive diagram showing the progression of topics throughout your 30-day journey
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Week 1: Foundation -->
+      <section id="week1" class="py-16">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 1: Foundation</h2>
+            <p class="text-xl text-charcoal/70">Master Python fundamentals and core DSA concepts</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Day 1-2 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Days 1-2</h3>
+                <span class="px-3 py-1 bg-gold/20 text-xs rounded-full">Setup</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Python Environment &amp; Basics</h4>
+              <ul class="space-y-2 text-sm text-charcoal/70 mb-4">
+                <li>• Python installation and PATH setup</li>
+                <li>• VS Code configuration</li>
+                <li>• Variables, data types, control flow</li>
+                <li>• Functions and scope</li>
+              </ul>
+              <div class="tamil-resource p-3 rounded">
+                <p class="text-sm font-medium text-charcoal mb-1">
+                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
+                </p>
+                <p class="text-xs text-charcoal/70">JVL Code&#39;s Python DSA Overview</p>
+              </div>
+            </div>
+
+            <!-- Day 3-4 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Days 3-4</h3>
+                <span class="px-3 py-1 bg-sage/20 text-xs rounded-full">Theory</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Complexity Analysis</h4>
+              <ul class="space-y-2 text-sm text-charcoal/70 mb-4">
+                <li>• Big O notation fundamentals</li>
+                <li>• Time and space complexity</li>
+                <li>• Common complexities: O(1), O(n), O(n²)</li>
+                <li>• Algorithm efficiency comparison</li>
+              </ul>
+              <div class="flex flex-wrap gap-1">
+                <span class="complexity-badge px-2 py-1 text-xs rounded">O(1)</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">O(log n)</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">O(n)</span>
+              </div>
+            </div>
+
+            <!-- Day 5-7 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Days 5-7</h3>
+                <span class="px-3 py-1 bg-navy/10 text-xs rounded-full">Practice</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Arrays &amp; Linked Lists</h4>
+              <ul class="space-y-2 text-sm text-charcoal/70 mb-4">
+                <li>• Array implementation in Python</li>
+                <li>• Linked list operations</li>
+                <li>• Time complexity analysis</li>
+                <li>• Common interview problems</li>
+              </ul>
+              <div class="tamil-resource p-3 rounded">
+                <p class="text-sm font-medium text-charcoal mb-1">
+                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
+                </p>
+                <p class="text-xs text-charcoal/70">Time &amp; Space Mastery - Linked Lists</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Big O Notation Visual -->
+          <div class="bg-white p-8 rounded-lg border border-navy/10 mb-8">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Understanding Big O Notation</h3>
+            <div class="max-w-3xl mx-auto">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 bg-ivory/50 rounded">
+                  <span class="font-medium">O(1) - Constant</span>
+                  <div class="flex-1 mx-4 bg-gray-200 rounded-full h-2">
+                    <div class="bg-sage h-2 rounded-full" style="width:10%"></div>
+                  </div>
+                  <span class="text-sm text-charcoal/60">Excellent</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-ivory/50 rounded">
+                  <span class="font-medium">O(log n) - Logarithmic</span>
+                  <div class="flex-1 mx-4 bg-gray-200 rounded-full h-2">
+                    <div class="bg-sage h-2 rounded-full" style="width: 20%"></div>
+                  </div>
+                  <span class="text-sm text-charcoal/60">Great</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-ivory/50 rounded">
+                  <span class="font-medium">O(n) - Linear</span>
+                  <div class="flex-1 mx-4 bg-gray-200 rounded-full h-2">
+                    <div class="bg-gold h-2 rounded-full" style="width: 40%"></div>
+                  </div>
+                  <span class="text-sm text-charcoal/60">Good</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-ivory/50 rounded">
+                  <span class="font-medium">O(n²) - Quadratic</span>
+                  <div class="flex-1 mx-4 bg-gray-200 rounded-full h-2">
+                    <div class="bg-red-400 h-2 rounded-full" style="width: 80%"></div>
+                  </div>
+                  <span class="text-sm text-charcoal/60">Poor</span>
+                </div>
+              </div>
+              <p class="text-center text-sm text-charcoal/60 mt-4">
+                Visual representation of time complexity growth rates
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Week 2: Core Data Structures -->
+      <section id="week2" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 2: Core Data Structures</h2>
+            <p class="text-xl text-charcoal/70">Master stacks, queues, trees, and hash tables</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Stacks -->
+            <div class="resource-card bg-ivory/50 p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-layer-group text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-lg font-semibold text-navy">Stacks</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-1 mb-4">
+                <li>• LIFO Principle</li>
+                <li>• Push/Pop Operations</li>
+                <li>• O(1) Time Complexity</li>
+                <li>• Parentheses Matching</li>
+              </ul>
+              <div class="tamil-resource p-2 rounded text-xs">
+                JVL Code: Stack Implementation in Tamil
+              </div>
+            </div>
+
+            <!-- Queues -->
+            <div class="resource-card bg-ivory/50 p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-stream text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-lg font-semibold text-navy">Queues</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-1 mb-4">
+                <li>• FIFO Principle</li>
+                <li>• Enqueue/Dequeue</li>
+                <li>• BFS Applications</li>
+                <li>• Priority Queues</li>
+              </ul>
+              <div class="tamil-resource p-2 rounded text-xs">
+                Time &amp; Space Mastery: Queue Tutorials
+              </div>
+            </div>
+
+            <!-- Trees -->
+            <div class="resource-card bg-ivory/50 p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-sitemap text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-lg font-semibold text-navy">Trees</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-1 mb-4">
+                <li>• Binary Trees</li>
+                <li>• BST Operations</li>
+                <li>• Tree Traversals</li>
+                <li>• O(log n) Search</li>
+              </ul>
+              <div class="flex flex-wrap gap-1">
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Preorder</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Inorder</span>
+              </div>
+            </div>
+
+            <!-- Hash Tables -->
+            <div class="resource-card bg-ivory/50 p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-database text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-lg font-semibold text-navy">Hash Tables</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-1 mb-4">
+                <li>• O(1) Average Case</li>
+                <li>• Collision Resolution</li>
+                <li>• Python dict implementation</li>
+                <li>• Hashing Applications</li>
+              </ul>
+              <div class="flex flex-wrap gap-1">
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Chaining</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Open Addressing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tree Traversal Visualization -->
+          <div class="bg-ivory/30 p-8 rounded-lg border border-navy/10">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Tree Traversal Methods</h3>
+            <div class="mermaid-container">
+              <div class="mermaid-controls">
+                <button class="mermaid-control-btn zoom-in" title="放大">
+                  <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="mermaid-control-btn zoom-out" title="缩小">
+                  <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="mermaid-control-btn reset-zoom" title="重置">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+                <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+              <div class="mermaid">
+                graph TD
+                A[&#34;Root: 5&#34;] --&gt; B[&#34;Left: 3&#34;]
+                A --&gt; C[&#34;Right: 8&#34;]
+                B --&gt; D[&#34;Left: 1&#34;]
+                B --&gt; E[&#34;Right: 4&#34;]
+                C --&gt; F[&#34;Left: 7&#34;]
+                C --&gt; G[&#34;Right: 9&#34;]
+
+                style A fill:#d4af37,stroke:#1e293b,stroke-width:3px,color:#1e293b
+                style B fill:#87a96b,stroke:#1e293b,stroke-width:2px,color:#1e293b
+                style C fill:#87a96b,stroke:#1e293b,stroke-width:2px,color:#1e293b
+                style D fill:#faf7f0,stroke:#1e293b,stroke-width:1px,color:#1e293b
+                style E fill:#faf7f0,stroke:#1e293b,stroke-width:1px,color:#1e293b
+                style F fill:#faf7f0,stroke:#1e293b,stroke-width:1px,color:#1e293b
+                style G fill:#faf7f0,stroke:#1e293b,stroke-width:1px,color:#1e293b
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div class="text-center">
+                <h4 class="font-semibold text-navy mb-2">Preorder</h4>
+                <p class="text-sm text-charcoal/70 bg-ivory p-3 rounded">5 → 3 → 1 → 4 → 8 → 7 → 9</p>
+              </div>
+              <div class="text-center">
+                <h4 class="font-semibold text-navy mb-2">Inorder</h4>
+                <p class="text-sm text-charcoal/70 bg-ivory p-3 rounded">1 → 3 → 4 → 5 → 7 → 8 → 9</p>
+              </div>
+              <div class="text-center">
+                <h4 class="font-semibold text-navy mb-2">Postorder</h4>
+                <p class="text-sm text-charcoal/70 bg-ivory p-3 rounded">1 → 4 → 3 → 7 → 9 → 8 → 5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Week 3: Core Algorithms -->
+      <section id="week3" class="py-16">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 3: Core Algorithms</h2>
+            <p class="text-xl text-charcoal/70">Master sorting, searching, and algorithm design paradigms</p>
+          </div>
+
+          <!-- Sorting Algorithms Table -->
+          <div class="bg-white p-8 rounded-lg border border-navy/10 mb-12">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Sorting Algorithms Comparison</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-navy/10">
+                    <th class="text-left py-3 px-4 font-semibold text-navy">Algorithm</th>
+                    <th class="text-center py-3 px-4 font-semibold text-navy">Best Case</th>
+                    <th class="text-center py-3 px-4 font-semibold text-navy">Average</th>
+                    <th class="text-center py-3 px-4 font-semibold text-navy">Worst Case</th>
+                    <th class="text-center py-3 px-4 font-semibold text-navy">Space</th>
+                    <th class="text-center py-3 px-4 font-semibold text-navy">Stable</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-navy/5">
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Bubble Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
+                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Selection Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
+                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Insertion Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
+                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Merge Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
+                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Quick Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(log n)</span></td>
+                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 px-4 font-medium">Heap Sort</td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
+                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
+                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-center text-sm text-charcoal/60 mt-4">
+              Python&#39;s built-in sort uses Timsort (hybrid of merge sort and insertion sort)
+            </p>
+          </div>
+
+          <!-- Algorithm Paradigms -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-search text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-xl font-semibold text-navy">Searching</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Linear Search</span>
+                  <span class="complexity-badge px-2 py-1 text-xs rounded">O(n)</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-sm font-medium">Binary Search</span>
+                  <span class="complexity-badge px-2 py-1 text-xs rounded">O(log n)</span>
+                </div>
+              </div>
+              <div class="tamil-resource p-3 rounded mt-4">
+                <p class="text-sm font-medium text-charcoal mb-1">
+                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
+                </p>
+                <p class="text-xs text-charcoal/70">Time &amp; Space Mastery: Searching Algorithms</p>
+              </div>
+            </div>
+
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-sync-alt text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-xl font-semibold text-navy">Recursion</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-2">
+                <li>• Base case definition</li>
+                <li>• Recursive case logic</li>
+                <li>• Call stack management</li>
+                <li>• Memoization optimization</li>
+              </ul>
+              <div class="tamil-resource p-3 rounded mt-4">
+                <p class="text-sm font-medium text-charcoal mb-1">
+                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
+                </p>
+                <p class="text-xs text-charcoal/70">Letter Combinations, Stack Reversal</p>
+              </div>
+            </div>
+
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-code-branch text-3xl text-navy mb-2"></i>
+                <h3 class="font-serif text-xl font-semibold text-navy">Divide &amp; Conquer</h3>
+              </div>
+              <ul class="text-sm text-charcoal/70 space-y-2">
+                <li>• Problem decomposition</li>
+                <li>• Merge Sort implementation</li>
+                <li>• Quick Sort optimization</li>
+                <li>• Subproblem combination</li>
+              </ul>
+              <div class="flex flex-wrap gap-1 mt-4">
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Divide</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Conquer</span>
+                <span class="complexity-badge px-2 py-1 text-xs rounded">Combine</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Week 4: Advanced Topics -->
+      <section id="week4" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 4: Advanced Topics</h2>
+            <p class="text-xl text-charcoal/70">Master graphs, dynamic programming, and interview preparation</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <!-- Graph Algorithms -->
+            <div class="resource-card bg-ivory/50 p-8 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Graph Algorithms</h3>
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Graph Representations</h4>
+                  <div class="grid grid-cols-2 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded border">
+                      <strong>Adjacency Matrix</strong>
+                      <p class="text-charcoal/70 mt-1">O(1) edge lookup
+                        <br/>O(V²) space
+                      </p>
+                    </div>
+                    <div class="bg-white p-3 rounded border">
+                      <strong>Adjacency List</strong>
+                      <p class="text-charcoal/70 mt-1">O(degree(V)) lookup
+                        <br/>O(V+E) space
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Traversal Algorithms</h4>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-white rounded border">
+                      <div>
+                        <strong>Breadth-First Search (BFS)</strong>
+                        <p class="text-xs text-charcoal/70">Queue-based, shortest path finding</p>
+                      </div>
+                      <span class="complexity-badge px-2 py-1 text-xs rounded">O(V+E)</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-white rounded border">
+                      <div>
+                        <strong>Depth-First Search (DFS)</strong>
+                        <p class="text-xs text-charcoal/70">Stack-based, cycle detection</p>
+                      </div>
+                      <span class="complexity-badge px-2 py-1 text-xs rounded">O(V+E)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Programming -->
+            <div class="resource-card bg-ivory/50 p-8 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Dynamic Programming</h3>
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Key Concepts</h4>
+                  <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-start space-x-2">
+                      <i class="fas fa-check-circle text-sage mt-0.5"></i>
+                      <span><strong>Overlapping Subproblems:</strong> Store results to avoid recomputation</span>
+                    </li>
+                    <li class="flex items-start space-x-2">
+                      <i class="fas fa-check-circle text-sage mt-0.5"></i>
+                      <span><strong>Optimal Substructure:</strong> Optimal solution from subproblem solutions</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Implementation Approaches</h4>
+                  <div class="space-y-3">
+                    <div class="p-3 bg-white rounded border">
+                      <strong>Memoization (Top-Down)</strong>
+                      <p class="text-xs text-charcoal/70 mt-1">Recursive with memory, easier to implement</p>
+                    </div>
+                    <div class="p-3 bg-white rounded border">
+                      <strong>Tabulation (Bottom-Up)</strong>
+                      <p class="text-xs text-charcoal/70 mt-1">Iterative table filling, space-optimized</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Common Problems</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="complexity-badge px-2 py-1 text-xs rounded">0/1 Knapsack</span>
+                    <span class="complexity-badge px-2 py-1 text-xs rounded">LCS</span>
+                    <span class="complexity-badge px-2 py-1 text-xs rounded">LIS</span>
+                    <span class="complexity-badge px-2 py-1 text-xs rounded">Edit Distance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Data Structures -->
+          <div class="bg-ivory/30 p-8 rounded-lg border border-navy/10">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Advanced Data Structures</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <i class="fas fa-tree text-4xl text-navy mb-4"></i>
+                <h4 class="font-semibold text-navy mb-2">Tries (Prefix Trees)</h4>
+                <p class="text-sm text-charcoal/70 mb-3">Efficient string storage and prefix matching</p>
+                <div class="space-y-1 text-xs">
+                  <div class="flex justify-between">
+                    <span>Search:</span>
+                    <span class="complexity-badge px-1 rounded">O(m)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Insert:</span>
+                    <span class="complexity-badge px-1 rounded">O(m)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <i class="fas fa-chart-bar text-4xl text-navy mb-4"></i>
+                <h4 class="font-semibold text-navy mb-2">Segment Trees</h4>
+                <p class="text-sm text-charcoal/70 mb-3">Range queries and updates in O(log n)</p>
+                <div class="space-y-1 text-xs">
+                  <div class="flex justify-between">
+                    <span>Query:</span>
+                    <span class="complexity-badge px-1 rounded">O(log n)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Update:</span>
+                    <span class="complexity-badge px-1 rounded">O(log n)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center">
+                <i class="fas fa-memory text-4xl text-navy mb-4"></i>
+                <h4 class="font-semibold text-navy mb-2">Bit Manipulation</h4>
+                <p class="text-sm text-charcoal/70 mb-3">Fast operations using bitwise operators</p>
+                <div class="space-y-1 text-xs">
+                  <div class="flex justify-between">
+                    <span>AND/OR/XOR:</span>
+                    <span class="complexity-badge px-1 rounded">O(1)</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Shifts:</span>
+                    <span class="complexity-badge px-1 rounded">O(1)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Practice and Interview Preparation -->
+      <section id="practice" class="py-16">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Practice &amp; Interview Preparation</h2>
+            <p class="text-xl text-charcoal/70">Consistent practice and strategic preparation</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Online Judges -->
+            <div class="resource-card bg-white p-8 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Daily Practice Platforms</h3>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-4 p-4 bg-ivory/50 rounded">
+                  <i class="fab fa-python text-2xl text-navy"></i>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-charcoal">LeetCode</h4>
+                    <p class="text-sm text-charcoal/70">Company-specific questions, discussion forums</p>
+                  </div>
+                  <a href="https://leetcode.com" target="_blank" class="text-gold hover:text-navy transition-colors">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="flex items-center space-x-4 p-4 bg-ivory/50 rounded">
+                  <i class="fas fa-code text-2xl text-navy"></i>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-charcoal">HackerRank</h4>
+                    <p class="text-sm text-charcoal/70">DSA, mathematics, SQL challenges</p>
+                  </div>
+                  <a href="https://hackerrank.com" target="_blank" class="text-gold hover:text-navy transition-colors">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+
+                <div class="flex items-center space-x-4 p-4 bg-ivory/50 rounded">
+                  <i class="fas fa-trophy text-2xl text-navy"></i>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-charcoal">CodeChef</h4>
+                    <p class="text-sm text-charcoal/70">Monthly contests, practice problems</p>
+                  </div>
+                  <a href="https://codechef.com" target="_blank" class="text-gold hover:text-navy transition-colors">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="mt-6 p-4 bg-sage/10 rounded">
+                <h5 class="font-semibold text-navy mb-2">Daily Practice Goal</h5>
+                <p class="text-sm text-charcoal/70">2-3 problems per day, focus on Easy &amp; Medium difficulty</p>
+              </div>
+            </div>
+
+            <!-- Interview Preparation -->
+            <div class="resource-card bg-white p-8 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Interview Strategy</h3>
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Common Interview Questions</h4>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="p-3 bg-ivory/50 rounded">
+                      <strong>Arrays &amp; Strings</strong>
+                      <p class="text-charcoal/70 text-xs mt-1">Two pointers, sliding window</p>
+                    </div>
+                    <div class="p-3 bg-ivory/50 rounded">
+                      <strong>Linked Lists</strong>
+                      <p class="text-charcoal/70 text-xs mt-1">Cycle detection, reversal</p>
+                    </div>
+                    <div class="p-3 bg-ivory/50 rounded">
+                      <strong>Trees &amp; Graphs</strong>
+                      <p class="text-charcoal/70 text-xs mt-1">Traversals, path finding</p>
+                    </div>
+                    <div class="p-3 bg-ivory/50 rounded">
+                      <strong>Dynamic Programming</strong>
+                      <p class="text-charcoal/70 text-xs mt-1">Knapsack, subsequences</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-charcoal mb-3">Preparation Resources</h4>
+                  <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-book text-sage"></i>
+                      <span>GeeksforGeeks Company Questions</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-comments text-sage"></i>
+                      <span>LeetCode Discuss Sections</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-users text-sage"></i>
+                      <span>Mock Interviews with Peers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practice Schedule -->
+          <div class="bg-ivory/30 p-8 rounded-lg border border-navy/10">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">30-Day Practice Schedule</h3>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+              <div class="text-center p-4 bg-white rounded border">
+                <h4 class="font-semibold text-navy mb-2">Week 1-2</h4>
+                <p class="text-sm text-charcoal/70">Core Data Structures</p>
+                <div class="text-xs text-sage mt-2">Arrays, Lists, Stacks, Queues</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded border">
+                <h4 class="font-semibold text-navy mb-2">Week 3</h4>
+                <p class="text-sm text-charcoal/70">Algorithms</p>
+                <div class="text-xs text-sage mt-2">Sorting, Searching, Recursion</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded border">
+                <h4 class="font-semibold text-navy mb-2">Week 4</h4>
+                <p class="text-sm text-charcoal/70">Advanced Topics</p>
+                <div class="text-xs text-sage mt-2">Graphs, DP, Tries</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded border">
+                <h4 class="font-semibold text-navy mb-2">Contests</h4>
+                <p class="text-sm text-charcoal/70">Weekly</p>
+                <div class="text-xs text-sage mt-2">CodeChef, HackerEarth</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded border">
+                <h4 class="font-semibold text-navy mb-2">Mock Interviews</h4>
+                <p class="text-sm text-charcoal/70">Final Week</p>
+                <div class="text-xs text-sage mt-2">Peer reviews, Timed tests</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Tamil Resources -->
+      <section id="resources" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Tamil Learning Resources</h2>
+            <p class="text-xl text-charcoal/70">Curated Tamil video resources and tutorials</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Primary Tamil Resources -->
+            <div class="resource-card bg-gradient-to-br from-gold/10 to-gold/5 p-8 rounded-lg border border-gold/20">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Primary Video Channels</h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-play text-gold"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-navy mb-1">Time &amp; Space Mastery</h4>
+                    <p class="text-sm text-charcoal/70 mb-2">By Pradeep B - Comprehensive DSA coverage</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-2 py-1 bg-gold/20 text-xs rounded">Linked Lists</span>
+                      <span class="px-2 py-1 bg-gold/20 text-xs rounded">Recursion</span>
+                      <span class="px-2 py-1 bg-gold/20 text-xs rounded">Interview Prep</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-code text-sage"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-navy mb-1">JVL Code</h4>
+                    <p class="text-sm text-charcoal/70 mb-2">Python DSA tutorials and quick guides</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-2 py-1 bg-sage/20 text-xs rounded">Quick Overviews</span>
+                      <span class="px-2 py-1 bg-sage/20 text-xs rounded">Stack Tutorials</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-puzzle-piece text-navy"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-navy mb-1">Vyshnav Karun Somasundaram</h4>
+                    <p class="text-sm text-charcoal/70 mb-2">LeetCode problem explanations</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="px-2 py-1 bg-navy/10 text-xs rounded">Stack Problems</span>
+                      <span class="px-2 py-1 bg-navy/10 text-xs rounded">Placement Prep</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Search Strategy -->
+            <div class="resource-card bg-ivory/50 p-8 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">YouTube Search Strategy</h3>
+              <div class="space-y-4">
+                <div class="p-4 bg-white rounded border">
+                  <h4 class="font-semibold text-charcoal mb-2">Search Queries for Specific Topics</h4>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="p-2 bg-ivory/30 rounded">
+                      <code class="text-navy">&#34;Tamil DSA linked list&#34;</code>
+                    </div>
+                    <div class="p-2 bg-ivory/30 rounded">
+                      <code class="text-navy">&#34;Python DSA tree tutorial Tamil&#34;</code>
+                    </div>
+                    <div class="p-2 bg-ivory/30 rounded">
+                      <code class="text-navy">&#34;Sorting algorithms Tamil&#34;</code>
+                    </div>
+                    <div class="p-2 bg-ivory/30 rounded">
+                      <code class="text-navy">&#34;Dynamic programming Tamil&#34;</code>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 bg-white rounded border">
+                  <h4 class="font-semibold text-charcoal mb-2">Platform Exploration</h4>
+                  <ul class="space-y-2 text-sm text-charcoal/70">
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-search text-sage"></i>
+                      <span>Search GUVI for free DSA content in Tamil</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-graduation-cap text-sage"></i>
+                      <span>Check CodeKata for practice problems</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                      <i class="fas fa-book-open text-sage"></i>
+                      <span>Explore free-programming-books resources</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resource Quality Guide -->
+          <div class="bg-gradient-to-r from-ivory/50 to-gold/10 p-8 rounded-lg border border-gold/20">
+            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Resource Quality Assessment</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-star text-2xl text-sage"></i>
+                </div>
+                <h4 class="font-semibold text-navy mb-2">High Quality</h4>
+                <ul class="text-sm text-charcoal/70 space-y-1">
+                  <li>• Clear explanations</li>
+                  <li>• Practical code examples</li>
+                  <li>• Problem-solving focus</li>
+                </ul>
+              </div>
+
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-check text-2xl text-gold"></i>
+                </div>
+                <h4 class="font-semibold text-navy mb-2">Good Quality</h4>
+                <ul class="text-sm text-charcoal/70 space-y-1">
+                  <li>• Concept coverage</li>
+                  <li>• Language clarity</li>
+                  <li>• Structured approach</li>
+                </ul>
+              </div>
+
+              <div class="text-center">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-exclamation text-2xl text-red-500"></i>
+                </div>
+                <h4 class="font-semibold text-navy mb-2">Avoid</h4>
+                <ul class="text-sm text-charcoal/70 space-y-1">
+                  <li>• Incomplete content</li>
+                  <li>• Language barriers</li>
+                  <li>• Paid-only access</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-12 bg-navy text-ivory">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+          <h3 class="font-serif text-2xl font-semibold mb-4">Your DSA Journey Starts Now</h3>
+          <p class="text-ivory/70 mb-6 max-w-2xl mx-auto">
+            With consistent practice, curated resources, and strategic preparation,
+            you can master Data Structures and Algorithms in just 30 days.
+            Remember, every expert was once a beginner.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <span class="px-4 py-2 bg-gold/20 rounded-full text-sm">3 Hours Daily</span>
+            <span class="px-4 py-2 bg-sage/20 rounded-full text-sm">Free Resources</span>
+            <span class="px-4 py-2 bg-ivory/10 rounded-full text-sm">Tamil Support</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#faf7f0',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#1e293b',
+                lineColor: '#1e293b',
+                secondaryColor: '#d4af37',
+                tertiaryColor: '#87a96b',
+                background: '#ffffff',
+                mainBkg: '#faf7f0',
+                secondBkg: '#fef3c7',
+                tertiaryBkg: '#ecfdf5',
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '14px'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true
+            },
+            gantt: {
+                useMaxWidth: true
+            }
+        });
+        
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize Mermaid controls after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Mermaid
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: 'base',
+                themeVariables: {
+                    primaryColor: '#faf7f0',
+                    primaryTextColor: '#1e293b',
+                    primaryBorderColor: '#1e293b',
+                    lineColor: '#1e293b',
+                    secondaryColor: '#d4af37',
+                    tertiaryColor: '#87a96b',
+                    background: '#ffffff',
+                    mainBkg: '#faf7f0',
+                    secondBkg: '#fef3c7',
+                    tertiaryBkg: '#ecfdf5',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '14px'
+                },
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    curve: 'basis'
+                },
+                sequence: {
+                    useMaxWidth: true
+                },
+                gantt: {
+                    useMaxWidth: true
+                }
+            });
+            
+            // Initialize controls for mermaid diagrams
+            initializeMermaidControls();
+        });
+        
+        // Mobile TOC Toggle
+        function toggleTOC() {
+            const toc = document.getElementById('toc');
+            const overlay = document.getElementById('toc-overlay');
+            toc.classList.toggle('open');
+            overlay.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active TOC link highlighting
+        function updateActiveTOCLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Update active TOC link on scroll
+        window.addEventListener('scroll', updateActiveTOCLink);
+        
+        // Initialize active TOC link
+        updateActiveTOCLink();
+
+        // Close mobile TOC when clicking outside
+        document.addEventListener('click', function(e) {
+            const toc = document.getElementById('toc');
+            const overlay = document.getElementById('toc-overlay');
+            const toggleBtn = document.querySelector('button[onclick="toggleTOC()"]');
+            
+            if (!toc.contains(e.target) && !toggleBtn.contains(e.target)) {
+                toc.classList.remove('open');
+                overlay.classList.add('hidden');
+            }
+        });
+
+        // Handle window resize to reset TOC on large screens
+        window.addEventListener('resize', function() {
+            const toc = document.getElementById('toc');
+            const overlay = document.getElementById('toc-overlay');
+            
+            if (window.innerWidth >= 1024) {
+                toc.classList.remove('open');
+                overlay.classList.add('hidden');
+            }
+        });
+    </script>
+  
+
+</body></html>
