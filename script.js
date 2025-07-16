@@ -365,4 +365,40 @@ window.addEventListener('resize', function() {
         toc.classList.remove('open');
         overlay.classList.add('hidden');
     }
-}); 
+});
+
+// Tamil Resource YouTube Link Handler
+function initializeTamilResourceLinks() {
+    const tamilResources = document.querySelectorAll('.tamil-resource[data-youtube-url]');
+    
+    tamilResources.forEach(resource => {
+        resource.addEventListener('click', function() {
+            const youtubeUrl = this.getAttribute('data-youtube-url');
+            if (youtubeUrl) {
+                // Open YouTube video in a new tab
+                window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
+            }
+        });
+        
+        // Add keyboard accessibility
+        resource.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const youtubeUrl = this.getAttribute('data-youtube-url');
+                if (youtubeUrl) {
+                    window.open(youtubeUrl, '_blank', 'noopener,noreferrer');
+                }
+            }
+        });
+        
+        // Make it focusable for keyboard navigation
+        resource.setAttribute('tabindex', '0');
+        resource.setAttribute('role', 'button');
+        resource.setAttribute('aria-label', 'Open Tamil resource video in YouTube');
+    });
+}
+
+// Initialize Tamil resource links when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializeTamilResourceLinks();
+});

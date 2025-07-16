@@ -50,6 +50,41 @@
 .tamil-resource {
     background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     border-left: 4px solid #d4af37;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tamil-resource:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    border-left-width: 6px;
+}
+
+.tamil-resource:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
+}
+
+.tamil-resource:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+}
+
+.tamil-resource::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tamil-resource:hover::before {
+    opacity: 1;
 }
 .mermaid-container {
     display: flex;
