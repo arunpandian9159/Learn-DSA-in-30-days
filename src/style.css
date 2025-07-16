@@ -162,7 +162,7 @@
     background: #f8fafc;
     border-color: #3b82f6;
     color: #3b82f6;
-    transform: translateY(-1px);
+    transform: translateY(-1px)
 }
 .mermaid-control-btn:active {
     transform: scale(0.95);
