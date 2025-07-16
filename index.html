@@ -214,10 +214,10 @@
             <a href="#week2" class="toc-link block py-2 text-charcoal hover:text-navy">Week 2: Core Structures</a>
           </li>
           <li>
-            <a href="#week3" class="toc-link block py-2 text-charcoal hover:text-navy">Week 3: Algorithms</a>
+            <a href="#week3" class="toc-link block py-2 text-charcoal hover:text-navy">Week 3: Advanced Algorithms & Practice</a>
           </li>
           <li>
-            <a href="#week4" class="toc-link block py-2 text-charcoal hover:text-navy">Week 4: Advanced Topics</a>
+            <a href="#week4" class="toc-link block py-2 text-charcoal hover:text-navy">Week 4: Final Practice & Assessment</a>
           </li>
           <li>
             <a href="#practice" class="toc-link block py-2 text-charcoal hover:text-navy">Practice &amp; Interviews</a>
@@ -1218,141 +1218,181 @@
       <section id="week3" class="py-16">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 3: Core Algorithms</h2>
-            <p class="text-xl text-charcoal/70">Master sorting, searching, and algorithm design paradigms</p>
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 3: Advanced Algorithms & Practice</h2>
+            <p class="text-xl text-charcoal/70">Master advanced algorithms, data structures, and competitive programming techniques</p>
           </div>
 
-          <!-- Sorting Algorithms Table -->
-          <div class="bg-white p-8 rounded-lg border border-navy/10 mb-12">
-            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Sorting Algorithms Comparison</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm">
-                <thead>
-                  <tr class="border-b border-navy/10">
-                    <th class="text-left py-3 px-4 font-semibold text-navy">Algorithm</th>
-                    <th class="text-center py-3 px-4 font-semibold text-navy">Best Case</th>
-                    <th class="text-center py-3 px-4 font-semibold text-navy">Average</th>
-                    <th class="text-center py-3 px-4 font-semibold text-navy">Worst Case</th>
-                    <th class="text-center py-3 px-4 font-semibold text-navy">Space</th>
-                    <th class="text-center py-3 px-4 font-semibold text-navy">Stable</th>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-navy/5">
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Bubble Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
-                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Selection Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
-                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Insertion Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
-                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Merge Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n)</span></td>
-                    <td class="py-3 px-4 text-center text-sage"><i class="fas fa-check"></i></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Quick Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n²)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(log n)</span></td>
-                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-4 font-medium">Heap Sort</td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(n log n)</span></td>
-                    <td class="py-3 px-4 text-center"><span class="complexity-badge px-2 py-1 rounded">O(1)</span></td>
-                    <td class="py-3 px-4 text-center text-red-500"><i class="fas fa-times"></i></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="text-center text-sm text-charcoal/60 mt-4">
-              Python&#39;s built-in sort uses Timsort (hybrid of merge sort and insertion sort)
-            </p>
-          </div>
-
-          <!-- Algorithm Paradigms -->
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Day 15 -->
             <div class="resource-card bg-white p-6 rounded-lg">
-              <div class="text-center mb-4">
-                <i class="fas fa-search text-3xl text-navy mb-2"></i>
-                <h3 class="font-serif text-xl font-semibold text-navy">Searching</h3>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 15</h3>
+                <span class="px-3 py-1 bg-gold/20 text-xs rounded-full">Advanced Dynamic Programming</span>
               </div>
-              <div class="space-y-3">
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium">Linear Search</span>
-                  <span class="complexity-badge px-2 py-1 text-xs rounded">O(n)</span>
-                </div>
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium">Binary Search</span>
-                  <span class="complexity-badge px-2 py-1 text-xs rounded">O(log n)</span>
-                </div>
-              </div>
-              <div class="tamil-resource p-3 rounded mt-4">
-                <p class="text-sm font-medium text-charcoal mb-1">
-                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
-                </p>
-                <p class="text-xs text-charcoal/70">Time &amp; Space Mastery: Searching Algorithms</p>
+              <h4 class="font-semibold text-charcoal mb-3">Advanced DP Concepts</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• DP on Trees, DP on Graphs</li>
+                  <li>• State Optimization, Bitmask DP</li>
+                  <li>• Practice: LeetCode, GeeksforGeeks DP Patterns</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Implement advanced DP problems</li>
+                  <li>• Codeforces/AtCoder DP contests</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Contest/Review</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Review solutions, discuss with peers</li>
+                  <li>• Tamil Video: Dynamic Programming in Tamil</li>
+                </ul>
               </div>
             </div>
-
+            <!-- Day 16 -->
             <div class="resource-card bg-white p-6 rounded-lg">
-              <div class="text-center mb-4">
-                <i class="fas fa-sync-alt text-3xl text-navy mb-2"></i>
-                <h3 class="font-serif text-xl font-semibold text-navy">Recursion</h3>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 16</h3>
+                <span class="px-3 py-1 bg-sage/20 text-xs rounded-full">Graph Algorithms (Dijkstra, MST)</span>
               </div>
-              <ul class="text-sm text-charcoal/70 space-y-2">
-                <li>• Base case definition</li>
-                <li>• Recursive case logic</li>
-                <li>• Call stack management</li>
-                <li>• Memoization optimization</li>
-              </ul>
-              <div class="tamil-resource p-3 rounded mt-4">
-                <p class="text-sm font-medium text-charcoal mb-1">
-                  <i class="fas fa-video text-gold mr-2"></i>Tamil Resource
-                </p>
-                <p class="text-xs text-charcoal/70">Letter Combinations, Stack Reversal</p>
+              <h4 class="font-semibold text-charcoal mb-3">Shortest Paths & Minimum Spanning Trees</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Dijkstra's Algorithm, Bellman-Ford</li>
+                  <li>• Prim's and Kruskal's MST</li>
+                  <li>• Practice: GeeksforGeeks, VisuAlgo</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Implement Dijkstra, Prim, Kruskal in Python</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Contest/Review</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Solve graph problems on LeetCode</li>
+                  <li>• Tamil Video: Graph Algorithms in Tamil</li>
+                </ul>
               </div>
             </div>
-
+            <!-- Day 17 -->
             <div class="resource-card bg-white p-6 rounded-lg">
-              <div class="text-center mb-4">
-                <i class="fas fa-code-branch text-3xl text-navy mb-2"></i>
-                <h3 class="font-serif text-xl font-semibold text-navy">Divide &amp; Conquer</h3>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 17</h3>
+                <span class="px-3 py-1 bg-navy/10 text-xs rounded-full">Advanced Data Structures</span>
               </div>
-              <ul class="text-sm text-charcoal/70 space-y-2">
-                <li>• Problem decomposition</li>
-                <li>• Merge Sort implementation</li>
-                <li>• Quick Sort optimization</li>
-                <li>• Subproblem combination</li>
-              </ul>
-              <div class="flex flex-wrap gap-1 mt-4">
-                <span class="complexity-badge px-2 py-1 text-xs rounded">Divide</span>
-                <span class="complexity-badge px-2 py-1 text-xs rounded">Conquer</span>
-                <span class="complexity-badge px-2 py-1 text-xs rounded">Combine</span>
+              <h4 class="font-semibold text-charcoal mb-3">Trie, Segment Tree, Fenwick Tree</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Trie: Prefix trees, applications</li>
+                  <li>• Segment Tree, Fenwick Tree (BIT)</li>
+                  <li>• Range queries, updates</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Implement Trie, Segment Tree in Python</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Practice</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Solve range query problems</li>
+                  <li>• Tamil Video: Data Structures in Tamil</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Day 18 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 18</h3>
+                <span class="px-3 py-1 bg-gold/20 text-xs rounded-full">String Algorithms</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">KMP, Rabin-Karp, Z-Algorithm</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Pattern matching, substring search</li>
+                  <li>• KMP, Rabin-Karp, Z-Algorithm</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Implement KMP, Rabin-Karp in Python</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Practice</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Solve string problems on LeetCode</li>
+                  <li>• Tamil Video: String Algorithms in Tamil</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Day 19 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 19</h3>
+                <span class="px-3 py-1 bg-sage/20 text-xs rounded-full">Advanced Graph Algorithms</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Topological Sort, SCC, Bridges</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Topological Sorting, Kosaraju's SCC</li>
+                  <li>• Bridges, Articulation Points</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Implement topological sort, SCC in Python</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Practice</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Solve advanced graph problems</li>
+                  <li>• Tamil Video: Graph Algorithms in Tamil</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Day 20 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 20</h3>
+                <span class="px-3 py-1 bg-navy/10 text-xs rounded-full">Competitive Programming</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Techniques & Problem Solving</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Theory</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Problem-solving strategies</li>
+                  <li>• Time/space optimization, code templates</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Implementation</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Practice on Codeforces, AtCoder, LeetCode</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Contest/Review</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Participate in a live contest</li>
+                  <li>• Tamil Video: Competitive Programming in Tamil</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Day 21 -->
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-serif text-xl font-semibold text-navy">Day 21</h3>
+                <span class="px-3 py-1 bg-gold/20 text-xs rounded-full">Mock Interviews & Review</span>
+              </div>
+              <h4 class="font-semibold text-charcoal mb-3">Mock Interviews and Review</h4>
+              <div class="mb-4">
+                <h5 class="font-medium text-charcoal mb-2">Morning: Mock Interviews</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Practice with peers or online platforms</li>
+                  <li>• Review common interview questions</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Afternoon: Review</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70 mb-3">
+                  <li>• Revisit weak topics</li>
+                  <li>• Final Q&A, code review</li>
+                </ul>
+                <h5 class="font-medium text-charcoal mb-2">Evening: Tamil Video Review</h5>
+                <ul class="space-y-1 text-sm text-charcoal/70">
+                  <li>• Watch Tamil DSA review videos</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1361,155 +1401,55 @@
 
       <div class="section-divider"></div>
 
-      <!-- Week 4: Advanced Topics -->
-      <section id="week4" class="py-16 bg-white">
+      <!-- Week 4: Final Practice & Assessment -->
+      <section id="week4" class="py-16">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 4: Advanced Topics</h2>
-            <p class="text-xl text-charcoal/70">Master graphs, dynamic programming, and interview preparation</p>
+            <h2 class="font-serif text-4xl font-bold text-navy mb-4">Week 4: Final Practice & Assessment</h2>
+            <p class="text-xl text-charcoal/70">Daily practice, interview prep, and assessment</p>
           </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            <!-- Graph Algorithms -->
-            <div class="resource-card bg-ivory/50 p-8 rounded-lg">
-              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Graph Algorithms</h3>
-              <div class="space-y-6">
-                <div>
-                  <h4 class="font-semibold text-charcoal mb-3">Graph Representations</h4>
-                  <div class="grid grid-cols-2 gap-4 text-sm">
-                    <div class="bg-white p-3 rounded border">
-                      <strong>Adjacency Matrix</strong>
-                      <p class="text-charcoal/70 mt-1">O(1) edge lookup
-                        <br/>O(V²) space
-                      </p>
-                    </div>
-                    <div class="bg-white p-3 rounded border">
-                      <strong>Adjacency List</strong>
-                      <p class="text-charcoal/70 mt-1">O(degree(V)) lookup
-                        <br/>O(V+E) space
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="font-semibold text-charcoal mb-3">Traversal Algorithms</h4>
-                  <div class="space-y-3">
-                    <div class="flex justify-between items-center p-3 bg-white rounded border">
-                      <div>
-                        <strong>Breadth-First Search (BFS)</strong>
-                        <p class="text-xs text-charcoal/70">Queue-based, shortest path finding</p>
-                      </div>
-                      <span class="complexity-badge px-2 py-1 text-xs rounded">O(V+E)</span>
-                    </div>
-                    <div class="flex justify-between items-center p-3 bg-white rounded border">
-                      <div>
-                        <strong>Depth-First Search (DFS)</strong>
-                        <p class="text-xs text-charcoal/70">Stack-based, cycle detection</p>
-                      </div>
-                      <span class="complexity-badge px-2 py-1 text-xs rounded">O(V+E)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="resource-card bg-white p-6 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-4">Days 22–30: Daily Practice & Interview Prep</h3>
+              <ul class="space-y-2 text-sm text-charcoal/70 mb-4">
+                <li>• Practice 2–3 problems daily on LeetCode, HackerRank, CodeChef, Coderbyte</li>
+                <li>• Focus on interview crash courses and domain-specific practice</li>
+                <li>• Participate in mock interviews and timed contests</li>
+                <li>• Review solutions, optimize code, and revisit weak topics</li>
+                <li>• Use Tamil video resources for revision and concept clarity</li>
+              </ul>
+              <h4 class="font-semibold text-charcoal mb-2">Recommended Platforms</h4>
+              <ul class="space-y-1 text-sm text-charcoal/70">
+                <li>• LeetCode: <a href="https://leetcode.com" class="text-gold hover:text-navy" target="_blank">leetcode.com</a></li>
+                <li>• HackerRank: <a href="https://www.hackerrank.com" class="text-gold hover:text-navy" target="_blank">hackerrank.com</a></li>
+                <li>• CodeChef: <a href="https://www.codechef.com" class="text-gold hover:text-navy" target="_blank">codechef.com</a></li>
+                <li>• Coderbyte: <a href="https://coderbyte.com" class="text-gold hover:text-navy" target="_blank">coderbyte.com</a></li>
+              </ul>
+              <h4 class="font-semibold text-charcoal mb-2 mt-4">Key Tamil Video Resources</h4>
+              <ul class="space-y-1 text-sm text-charcoal/70">
+                <li>• Master Python Data Structures in Tamil - 6 Hour Course</li>
+                <li>• Data Structures and Algorithms Full Course in Tamil</li>
+                <li>• Python Data Structures & Algorithms in Tamil</li>
+                <li>• Data Structures in Tamil Playlist</li>
+              </ul>
             </div>
-
-            <!-- Dynamic Programming -->
-            <div class="resource-card bg-ivory/50 p-8 rounded-lg">
-              <h3 class="font-serif text-2xl font-semibold text-navy mb-6">Dynamic Programming</h3>
-              <div class="space-y-6">
-                <div>
-                  <h4 class="font-semibold text-charcoal mb-3">Key Concepts</h4>
-                  <ul class="space-y-2 text-sm text-charcoal/70">
-                    <li class="flex items-start space-x-2">
-                      <i class="fas fa-check-circle text-sage mt-0.5"></i>
-                      <span><strong>Overlapping Subproblems:</strong> Store results to avoid recomputation</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                      <i class="fas fa-check-circle text-sage mt-0.5"></i>
-                      <span><strong>Optimal Substructure:</strong> Optimal solution from subproblem solutions</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 class="font-semibold text-charcoal mb-3">Implementation Approaches</h4>
-                  <div class="space-y-3">
-                    <div class="p-3 bg-white rounded border">
-                      <strong>Memoization (Top-Down)</strong>
-                      <p class="text-xs text-charcoal/70 mt-1">Recursive with memory, easier to implement</p>
-                    </div>
-                    <div class="p-3 bg-white rounded border">
-                      <strong>Tabulation (Bottom-Up)</strong>
-                      <p class="text-xs text-charcoal/70 mt-1">Iterative table filling, space-optimized</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 class="font-semibold text-charcoal mb-3">Common Problems</h4>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="complexity-badge px-2 py-1 text-xs rounded">0/1 Knapsack</span>
-                    <span class="complexity-badge px-2 py-1 text-xs rounded">LCS</span>
-                    <span class="complexity-badge px-2 py-1 text-xs rounded">LIS</span>
-                    <span class="complexity-badge px-2 py-1 text-xs rounded">Edit Distance</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Advanced Data Structures -->
-          <div class="bg-ivory/30 p-8 rounded-lg border border-navy/10">
-            <h3 class="font-serif text-2xl font-semibold text-navy mb-6 text-center">Advanced Data Structures</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="text-center">
-                <i class="fas fa-tree text-4xl text-navy mb-4"></i>
-                <h4 class="font-semibold text-navy mb-2">Tries (Prefix Trees)</h4>
-                <p class="text-sm text-charcoal/70 mb-3">Efficient string storage and prefix matching</p>
-                <div class="space-y-1 text-xs">
-                  <div class="flex justify-between">
-                    <span>Search:</span>
-                    <span class="complexity-badge px-1 rounded">O(m)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Insert:</span>
-                    <span class="complexity-badge px-1 rounded">O(m)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="text-center">
-                <i class="fas fa-chart-bar text-4xl text-navy mb-4"></i>
-                <h4 class="font-semibold text-navy mb-2">Segment Trees</h4>
-                <p class="text-sm text-charcoal/70 mb-3">Range queries and updates in O(log n)</p>
-                <div class="space-y-1 text-xs">
-                  <div class="flex justify-between">
-                    <span>Query:</span>
-                    <span class="complexity-badge px-1 rounded">O(log n)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Update:</span>
-                    <span class="complexity-badge px-1 rounded">O(log n)</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="text-center">
-                <i class="fas fa-memory text-4xl text-navy mb-4"></i>
-                <h4 class="font-semibold text-navy mb-2">Bit Manipulation</h4>
-                <p class="text-sm text-charcoal/70 mb-3">Fast operations using bitwise operators</p>
-                <div class="space-y-1 text-xs">
-                  <div class="flex justify-between">
-                    <span>AND/OR/XOR:</span>
-                    <span class="complexity-badge px-1 rounded">O(1)</span>
-                  </div>
-                  <div class="flex justify-between">
-                    <span>Shifts:</span>
-                    <span class="complexity-badge px-1 rounded">O(1)</span>
-                  </div>
-                </div>
-              </div>
+            <div class="resource-card bg-ivory/50 p-6 rounded-lg">
+              <h3 class="font-serif text-2xl font-semibold text-navy mb-4">Success Tips</h3>
+              <ul class="space-y-2 text-sm text-charcoal/70 mb-4">
+                <li>• Daily Consistency: Follow the schedule religiously for 30 days</li>
+                <li>• Use Tamil explanations to understand concepts clearly</li>
+                <li>• Leverage visualization tools for better understanding</li>
+                <li>• Solve at least 5 problems daily for maximum retention</li>
+                <li>• Review and optimize your solutions regularly</li>
+                <li>• Practice explaining your solutions in mock interviews</li>
+              </ul>
+              <h4 class="font-semibold text-charcoal mb-2">Visualization Tools</h4>
+              <ul class="space-y-1 text-sm text-charcoal/70">
+                <li>• Algorithm Visualizer: <a href="https://algorithm-visualizer.org" class="text-gold hover:text-navy" target="_blank">algorithm-visualizer.org</a></li>
+                <li>• VisuAlgo: <a href="https://visualgo.net" class="text-gold hover:text-navy" target="_blank">visualgo.net</a></li>
+                <li>• AlgoAction: <a href="https://algoaction.netlify.app" class="text-gold hover:text-navy" target="_blank">algoaction.netlify.app</a></li>
+                <li>• CSVis Tool: <a href="https://csvistool.com" class="text-gold hover:text-navy" target="_blank">csvistool.com</a></li>
+              </ul>
             </div>
           </div>
         </div>
